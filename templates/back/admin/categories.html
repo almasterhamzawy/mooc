@@ -1,0 +1,51 @@
+
+<!-- page start-->
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                All Categories
+            </header>
+            <div class="panel-body">
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>created by</th>
+                            <th>Control</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        if(count($categories)>0)
+                        {
+                            foreach($categories as $category)
+                            {
+                                $cid = $category['category_id'];
+                                $cat = $category['category_name'];
+                                $user= $category['username'];
+
+                                echo "<tr>
+                                    <td><a href='updatecategory.php?id=$cid'> $cat </a></td>
+                                    <td>$user</td>
+                                    <td>
+                                        <a href='updatecategory.php?id=$cid' class='btn btn-info'><i class='icon-refresh'></i> Update</a>
+                                        <a href='deletecategory.php?id=$cid' class='btn btn-danger'><i class='icon-trash'></i> Delete</a>
+                                    </td>
+                                </tr>";
+                            }
+                        }
+                        else
+                        {
+                            echo '<tr><td colspan="3">No Categories Found</td></tr>';
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </section>
+    </div>
+</div>

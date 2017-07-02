@@ -1,0 +1,48 @@
+
+<!-- page start-->
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                All Users Groups
+            </header>
+            <div class="panel-body">
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Group</th>
+                            <th>Control</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        if(count($groups)>0)
+                        {
+                            foreach($groups as $group)
+                            {
+                                $gid = $group['group_id'];
+                                $groupName = $group['group_name'];
+
+                                echo "<tr>
+                                    <td><a href='updateusergroup.php?id=$gid'> $groupName </a></td>
+
+                                    <td>
+                                        <a href='updateusergroup.php?id=$gid' class='btn btn-info'><i class='icon-refresh'></i> Update</a>
+                                        <a href='deleteusergroup.php?id=$gid' class='btn btn-danger'><i class='icon-trash'></i> Delete</a>
+                                    </td>
+                                </tr>";
+                            }
+                        }
+                        else
+                        {
+                            echo '<tr><td colspan="3">No Groups Found</td></tr>';
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </section>
+    </div>
+</div>

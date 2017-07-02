@@ -1,0 +1,55 @@
+
+<!-- page start-->
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                All Users
+            </header>
+            <div class="panel-body">
+                <section id="unseen">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Group</th>
+                            <th>Control</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        if(count($users)>0)
+                        {
+                            foreach($users as $user)
+                            {
+                                $id         = $user['user_id'];
+                                $username   = $user['username'];
+                                $group      = $user['group_name'];
+                                $groupid    = $user['user_group'];
+                                $email      = $user['email'];
+
+                                echo "<tr>
+                                    <td><a href='updateuser.php?id=$id'> $username </a></td>
+                                    <td>$email</td>
+                                    <td><a href='updateusergroup.php?id=$groupid' class='btn btn-success'><i class='icon-user'></i> $group</a></td>
+                                    <td>
+                                        <a href='updateuser.php?id=$id' class='btn btn-info'><i class='icon-refresh'></i> Update</a>
+                                        <a href='deleteuser.php?id=$id' class='btn btn-danger'><i class='icon-trash'></i> Delete</a>
+                                    </td>
+                                </tr>";
+                            }
+                        }
+                        else
+                        {
+                            echo '<tr><td colspan="4">No Users Found</td></tr>';
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </section>
+    </div>
+</div>

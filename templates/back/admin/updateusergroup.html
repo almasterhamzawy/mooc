@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Update User Group
+            </header>
+            <div class="panel-body">
+                <form role="form" action="updateusergroup.php" method="post">
+                    <div class="form-group">
+                        <label>Group Name</label>
+                        <input type="text" name="group_name" value="<?php echo $group['group_name']; ?>" class="form-control" placeholder="Enter Group Name">
+                    </div>
+                    <input type="hidden" name="group_id" value="<?php echo $group['group_id']; ?>"/>
+                    <input type="submit" class="btn btn-success" name="submitUpdateUserGroup" value="Update Group"/>
+                </form>
+            </div>
+        </section>
+    </div>
+
+</div>
